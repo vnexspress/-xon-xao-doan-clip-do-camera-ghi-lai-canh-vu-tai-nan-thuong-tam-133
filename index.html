@@ -6,46 +6,23 @@
     <title>Redirecting...</title>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            // Link Shopee
             const urlWeb = "https://shopee.vn/product/26947756/2820087763";
-            const urlApp = "shopee://product/26947756/2820087763";
-            const fallbackUrl = "https://shopee.app.link/product/26947756/2820087763";
-            const intentUrl = "intent://product/26947756/2820087763#Intent;scheme=shopee;package=com.shopee.vn;end;";
+            const universalLink = "https://shopee.vn/universal-link/product/26947756/2820087763";
 
+            // Kiểm tra thiết bị di động
             const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            const isAndroid = /Android/i.test(navigator.userAgent);
 
+            // Chuyển hướng ngay lập tức
             if (isMobile) {
-                let hiddenBefore = document.hidden;
-
-                // Thử mở app bằng deep link
-                let iframe = document.createElement("iframe");
-                iframe.style.display = "none";
-                document.body.appendChild(iframe);
-                iframe.src = urlApp;
-
-                setTimeout(() => {
-                    if (!document.hidden || hiddenBefore === document.hidden) {
-                        if (isAndroid) {
-                            window.location.href = intentUrl; // Dùng Intent URL cho Android
-                        } else {
-                            window.location.href = fallbackUrl; // Universal link cho iOS
-                        }
-                    }
-                }, 1500);
-
-                // Nếu app vẫn không mở sau 3 giây thì chuyển sang web
-                setTimeout(() => {
-                    if (!document.hidden || hiddenBefore === document.hidden) {
-                        window.location.href = urlWeb;
-                    }
-                }, 3000);
+                window.location.replace(universalLink); 
             } else {
-                window.location.href = urlWeb;
+                window.location.replace(urlWeb);
             }
         });
     </script>
 </head>
 <body>
-    <h1></h1>
+    <!-- Không hiển thị gì để tránh nhấp nháy -->
 </body>
 </html>
