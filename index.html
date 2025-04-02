@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var urlWeb = "https://shopee.vn/product/26947756/2820087763?uls_trackid=52ca0i2a001g&utm_campaign=id_CMa8ZU0M4G&utm_content=omo----&utm_medium=affiliates&utm_source=an_17399510283&utm_term=csuw2sswr74s";
+
+            var urlApp = "shopee://product/26947756/2820087763";
+
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+
+                window.location.href = urlApp;
+
+                setTimeout(function () {
+                    window.location.href = urlWeb;
+                }, 2000);
+            } else {
+                window.location.href = urlWeb;
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Đang Đến bài báo...</h1>
+</body>
+</html>
