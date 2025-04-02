@@ -1,22 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            var urlWeb = "https://shopee.vn/product/26947756/2820087763?uls_trackid=52ca0i2a001g&utm_campaign=id_CMa8ZU0M4G&utm_content=omo----&utm_medium=affiliates&utm_source=an_17399510283&utm_term=csuw2sswr74s";
-
+            var urlWeb = "https://shopee.vn/product/26947756/2820087763";
             var urlApp = "shopee://product/26947756/2820087763";
 
-            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
+            if (isMobile) {
+                var now = new Date().getTime();
                 window.location.href = urlApp;
 
                 setTimeout(function () {
-                    window.location.href = urlWeb;
-                }, 2000);
+                    var timeElapsed = new Date().getTime() - now;
+                    if (timeElapsed < 2000) {
+                        window.location.href = urlWeb;
+                    }
+                }, 1500);
             } else {
                 window.location.href = urlWeb;
             }
@@ -24,6 +28,6 @@
     </script>
 </head>
 <body>
-    <h1>Đang Đến bài báo...</h1>
+    <h1>Đang chuyển hướng...</h1>
 </body>
 </html>
